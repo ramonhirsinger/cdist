@@ -6,14 +6,16 @@ module.exports = function (grunt) {
         paths: {
             src: {
                 concat: 'script/*.js',
-                scss: 'scss/style.scss'
+                scss: 'scss/style.scss',
+                image: '../files'
             },
             dest: {
                 concat: 'js/main.js',
                 concatmin: 'js/main.min.js',
                 jstargz: 'js/main.min.js.gz',
                 csstargz: 'css/main.min.css.gz',
-                css: 'css/main.min.css'
+                css: 'css/main.min.css',
+                image: '../files/compressed'
             }
         },
         concat: {
@@ -21,7 +23,7 @@ module.exports = function (grunt) {
                 options: {
                     separator: ';'
                 },
-                src: '<%= paths.src.concat %>',
+                src: ['<%= paths.src.concat %>', 'plugin/**/*.js'],
                 dest: '<%= paths.dest.concat %>'
             }
         },
@@ -60,16 +62,22 @@ module.exports = function (grunt) {
             }
         },
         imagemin: {
-            dynamic: {// Another target
-                options: {// Target options
+            dynamic: {
+                options: {
                     optimizationLevel: 3,
                 },
                 files: [{
-                        expand: true, // Enable dynamic expansion
-                        cwd: '../files', // Src matches are relative to this path
-                        src: ['**/*.{png,jpg,gif}'], // Actual patterns to match
-                        dest: '../files'                  // Destination path prefix
+                        expand: true,
+                        cwd: '<%= paths.src.image %>',
+                        src: ['**/*.{png,jpg,gif}'],
+                        dest: '<%= paths.dest.image %>'
                     }]
+            }
+        },
+        watch: {
+            css: {
+                files: ['<%= paths.src.scss %>'],
+                tasks: ['sass:dist', 'cssmin']
             }
         }
     });
@@ -80,5 +88,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
-    grunt.registerTask('default', ['concat', 'uglify', 'compress', 'sass:dist', 'cssmin', 'imagemin']);
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.registerTask('default', ['concat', 'uglify', 'compress', 'sass:dist', 'cssmin', 'imagemin', 'watch']);
 };

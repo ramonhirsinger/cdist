@@ -8,3 +8,16 @@ and open the template in the editor.
     Author     : Ramon Hirsinger
 */
 
+@import 'variables.scss';
+
+//Plugins
+//--Bootstrap
+@import '../../plugin/bootstrap/scss/_bootstrap.scss';
+//--Font-Awesome
+@import '../../plugin/font-awesome/scss/_font-awesome.scss';
+//--lightbox2
+@import '../../plugin/lightbox2/scss/lightbox.scss';
+
+@import 'mixin.scss';
+@import 'animation.scss';
+@import 'media-queries.scss';
