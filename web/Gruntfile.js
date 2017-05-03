@@ -11,8 +11,9 @@ module.exports = function (grunt) {
             dest: {
                 concat: 'js/main.js',
                 concatmin: 'js/main.min.js',
-                targz: 'js/main.min.js.gz',
-                css: 'css/main.css'
+                jstargz: 'js/main.min.js.gz',
+                csstargz: 'css/main.min.css.gz',
+                css: 'css/main.min.css'
             }
         },
         concat: {
@@ -33,7 +34,7 @@ module.exports = function (grunt) {
         compress: {
             files: {
                 src: '<%= paths.dest.concatmin %>',
-                dest: '<%= paths.dest.targz %>'
+                dest: '<%= paths.dest.jstargz %>'
             }
         },
         sass: {
@@ -45,11 +46,39 @@ module.exports = function (grunt) {
                     '<%= paths.dest.css %>': '<%= paths.src.scss %>'
                 }
             }
+        },
+        cssmin: {
+            options: {
+                mergeIntoShorthands: false,
+                roundingPrecision: -1,
+                report: 'gzip'
+            },
+            target: {
+                files: {
+                    '<%= paths.dest.csstargz %>': '<%= paths.dest.css %>'
+                }
+            }
+        },
+        imagemin: {
+            dynamic: {// Another target
+                options: {// Target options
+                    optimizationLevel: 3,
+                },
+                files: [{
+                        expand: true, // Enable dynamic expansion
+                        cwd: '../files', // Src matches are relative to this path
+                        src: ['**/*.{png,jpg,gif}'], // Actual patterns to match
+                        dest: '../files'                  // Destination path prefix
+                    }]
+            }
         }
     });
+
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-compress');
     grunt.loadNpmTasks('grunt-contrib-sass');
-    grunt.registerTask('default', ['concat', 'uglify', 'compress', 'sass:dist']);
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.registerTask('default', ['concat', 'uglify', 'compress', 'sass:dist', 'cssmin', 'imagemin']);
 };
