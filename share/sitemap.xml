@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url><loc>http://localhost/cdist/index.php/seite-1.html</loc></url>
+  <url><loc>http://localhost/cdist/index.php/seite-2.html</loc></url>
+  <url><loc>http://localhost/cdist/index.php/seite-3.html</loc></url>
+  <url><loc>http://localhost/cdist/index.php/seite-3-1.html</loc></url>
+  <url><loc>http://localhost/cdist/index.php/seite-3-2.html</loc></url>
+  <url><loc>http://localhost/cdist/index.php/seite-4.html</loc></url>
+  <url><loc>http://localhost/cdist/index.php/seite-5.html</loc></url>
+  <url><loc>http://localhost/cdist/index.php/footer-1.html</loc></url>
+  <url><loc>http://localhost/cdist/index.php/footer-2.html</loc></url>
+  <url><loc>http://localhost/cdist/index.php/footer-3.html</loc></url>
 </urlset>

@@ -7,7 +7,7 @@ module.exports = function (grunt) {
             src: {
                 concat: 'script/*.js',
                 scss: 'scss/style.scss',
-                image: '../files'
+                image: '../../'
             },
             dest: {
                 concat: 'js/main.js',
@@ -15,7 +15,7 @@ module.exports = function (grunt) {
                 jstargz: 'js/main.min.js.gz',
                 csstargz: 'css/main.min.css.gz',
                 css: 'css/main.min.css',
-                image: '../files/compressed'
+                image: '../../compressed'
             }
         },
         concat: {
@@ -45,7 +45,7 @@ module.exports = function (grunt) {
                     style: 'compressed'
                 },
                 files: {
-                    '<%= paths.dest.css %>' : '<%= paths.src.scss %>'
+                    '<%= paths.dest.css %>': '<%= paths.src.scss %>'
                 }
             }
         },
@@ -89,5 +89,13 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.registerTask('default', ['concat', 'uglify', 'compress', 'sass:dist', 'cssmin', 'imagemin', 'watch']);
+
+    //imagemin
+    grunt.registerTask('default', ['concat', 'uglify', 'compress', 'sass:dist', 'cssmin', 'watch']);
+
+    grunt.registerTask('compress', ['imagemin']);
+
+//    grunt.registerTask('sass', ['sass:dist', 'cssmin']);
+
+//    grunt.registerTask('js', ['concat', 'uglify']);
 };
