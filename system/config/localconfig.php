@@ -16,4 +16,13 @@ $GLOBALS['TL_CONFIG']['dbSocket'] = '';
 $GLOBALS['TL_CONFIG']['adminEmail'] = 'info@webmadeforyou.de';
 $GLOBALS['TL_CONFIG']['latestVersion'] = '3.5.27';
 $GLOBALS['TL_CONFIG']['maintenanceMode'] = false;
+$GLOBALS['TL_CONFIG']['bypassCache'] = true;
+$GLOBALS['TL_CONFIG']['debugMode'] = false;
+$GLOBALS['TL_CONFIG']['cacheMode'] = 'none';
+$GLOBALS['TL_CONFIG']['privacyAnonymizeIp'] = false;
+$GLOBALS['TL_CONFIG']['privacyAnonymizeGA'] = false;
+$GLOBALS['TL_CONFIG']['displayErrors'] = false;
+$GLOBALS['TL_CONFIG']['enableSearch'] = false;
+$GLOBALS['TL_CONFIG']['disableCron'] = true;
+$GLOBALS['TL_CONFIG']['logErrors'] = false;
 ### INSTALL SCRIPT STOP ###

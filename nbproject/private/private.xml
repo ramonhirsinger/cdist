@@ -2,15 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/MAMP/htdocs/cdist/web/Gruntfile.js</file>
-            <file>file:/C:/MAMP/htdocs/cdist/web/script/script.js</file>
-            <file>file:/C:/MAMP/htdocs/cdist/web/scss/lib/animation.scss</file>
-            <file>file:/C:/MAMP/htdocs/cdist/web/scss/style.scss</file>
-            <file>file:/C:/MAMP/htdocs/cdist/web/scss/lib/mixin.scss</file>
-            <file>file:/C:/MAMP/htdocs/cdist/web/scss/lib/import.scss</file>
-            <file>file:/C:/MAMP/htdocs/cdist/web/package.json</file>
-            <file>file:/C:/MAMP/htdocs/cdist/web/node_modules/grunt/package.json</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
