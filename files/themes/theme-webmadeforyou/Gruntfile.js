@@ -6,6 +6,8 @@ module.exports = function (grunt) {
         paths: {
             src: {
                 concat: 'script/*.js',
+                script: 'script/script.js',
+                jquery: 'jquery-3.2.1/jquery-3.2.1.min.js',
                 scss: 'scss/style.scss',
                 image: '../../'
             },
@@ -23,7 +25,8 @@ module.exports = function (grunt) {
                 options: {
                     separator: ';'
                 },
-                src: ['<%= paths.src.concat %>', 'plugin/**/*.js'],
+                //'plugin/**/*.js'
+                src: ['script/**/*.js'],
                 dest: '<%= paths.dest.concat %>'
             }
         },
@@ -78,6 +81,10 @@ module.exports = function (grunt) {
             css: {
                 files: ['<%= paths.src.scss %>'],
                 tasks: ['sass:dist', 'cssmin']
+            },
+            js: {
+                 files: ['<%= paths.src.script %>'],
+                tasks: ['concat', 'uglify', 'compress']
             }
         }
     });
@@ -90,12 +97,12 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    //imagemin
-    grunt.registerTask('default', ['concat', 'uglify', 'compress', 'sass:dist', 'cssmin', 'watch']);
+    grunt.registerTask('image', ['imagemin']);
 
-    grunt.registerTask('compress', ['imagemin']);
+    grunt.registerTask('css', ['sass:dist', 'cssmin']);
 
-//    grunt.registerTask('sass', ['sass:dist', 'cssmin']);
-
-//    grunt.registerTask('js', ['concat', 'uglify']);
+    grunt.registerTask('js', ['concat', 'uglify', 'compress']);
+    
+    grunt.registerTask('watch',['watch:css','watch:js','sass:dist', 'cssmin', 'concat', 'uglify', 'compress']);
+    
 };

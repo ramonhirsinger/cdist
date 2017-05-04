@@ -25,4 +25,6 @@ $GLOBALS['TL_CONFIG']['displayErrors'] = false;
 $GLOBALS['TL_CONFIG']['enableSearch'] = false;
 $GLOBALS['TL_CONFIG']['disableCron'] = true;
 $GLOBALS['TL_CONFIG']['logErrors'] = false;
+$GLOBALS['TL_CONFIG']['gzipScripts'] = false;
+$GLOBALS['TL_CONFIG']['websiteTitle'] = 'cdist - webmadeforyou contao distribution 1.0';
 ### INSTALL SCRIPT STOP ###
