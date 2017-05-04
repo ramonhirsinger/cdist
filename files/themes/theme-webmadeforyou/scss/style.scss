@@ -1,1 +1,10 @@
 @import 'lib/import.scss';
+
+//FONT
+h1,h2,h3,h4,h5,h6 {font-family: $headlinefont; font-weight: $headlineweight; color: $headlinecolor; font-size: em(32px);}
+
+a,span,legend,p,li,td,div,input,button {font-family: $textfont; font-weight: $textweight; color: $textcolor; font-size: em(17px);}
+
+p {line-height: $paragraph-line;}
+
+@import 'lib/media-queries.scss';
