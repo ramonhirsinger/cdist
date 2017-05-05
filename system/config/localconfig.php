@@ -27,4 +27,5 @@ $GLOBALS['TL_CONFIG']['disableCron'] = true;
 $GLOBALS['TL_CONFIG']['logErrors'] = false;
 $GLOBALS['TL_CONFIG']['gzipScripts'] = false;
 $GLOBALS['TL_CONFIG']['websiteTitle'] = 'cdist - webmadeforyou contao distribution 1.0';
+$GLOBALS['TL_CONFIG']['installCount'] = 0;
 ### INSTALL SCRIPT STOP ###

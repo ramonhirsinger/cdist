@@ -1,6 +1,30 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="hidden-xs col-sm-5">
 
-<!-- indexer::stop -->
+        </div>
+        <div class="col-xs-12 col-sm-2">
+            <div class="navigation-button-container">
+                <div class="navigation-button" id="animated_navigation_button">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="navigation-title">
+                    <div class="children-to-lowercase">
+                    <?= $this->headline ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hidden-xs col-sm-5">
+            
+        </div>
+    </div>
+</div>
+
 <nav class="<?= $this->class ?> block"<?= $this->cssID ?><?php if ($this->style): ?> style="<?= $this->style ?>"<?php endif; ?>>
   <?= $this->items ?>
 </nav>
-<!-- indexer::continue -->

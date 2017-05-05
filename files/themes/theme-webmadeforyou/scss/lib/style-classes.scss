@@ -10,6 +10,9 @@
 .vertical-align-bottom {vertical-align: bottom;}
 .hidden {display: none;}
 
+.children-to-lowercase * {text-transform: lowercase;}
+.children-to-upppercase * {text-transform: uppercase;}
+
 .width-100 {width: 100%;}
 .width-90 {width: 90%;}
 .width-80 {width: 80%;}

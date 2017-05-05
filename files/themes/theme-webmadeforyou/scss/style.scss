@@ -1,10 +1,28 @@
 @import 'lib/import.scss';
 
-//FONT
-h1,h2,h3,h4,h5,h6 {font-family: $headlinefont; font-weight: $headlineweight; color: $headlinecolor; font-size: em(32px);}
 
-a,span,legend,p,li,td,div,input,button {font-family: $textfont; font-weight: $textweight; color: $textcolor; font-size: em(17px);}
 
-p {line-height: $paragraph-line;}
+body.wmfy-page {
+    //FONT
+    h1,h2,h3,h4,h5,h6 {font-family: $headlinefont; font-weight: $headlineweight; color: $headlinecolor; font-size: em(32px);}
 
-@import 'lib/media-queries.scss';
+    a,span,legend,p,li,td,div,input,button {font-family: $textfont; font-weight: $textweight; color: $textcolor; font-size: em(17px);}
+
+    p {line-height: $paragraph-line;}
+    
+    //HEADER
+    .wmfy-header {position: fixed; top: 0; left: 0;width: 100%; background-color: $maincolor; }
+
+    //NAVIGATIONS
+    
+    .navigation-button-container {
+        .navigation-button {
+            
+        }
+        
+        .navigation-title {
+            * {color: $white;}
+        }
+    }
+}
+

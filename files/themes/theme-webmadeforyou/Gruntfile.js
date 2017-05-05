@@ -86,7 +86,7 @@ module.exports = function (grunt) {
                 tasks: ['sass:dist', 'cssmin']
             },
             js: {
-                 files: ['<%= paths.src.script %>'],
+                files: ['<%= paths.src.script %>'],
                 tasks: ['concat', 'uglify', 'compress']
             }
         }
@@ -105,7 +105,4 @@ module.exports = function (grunt) {
     grunt.registerTask('css', ['sass:dist', 'cssmin']);
 
     grunt.registerTask('js', ['concat', 'uglify', 'compress']);
-    
-    grunt.registerTask('watch',['watch:css','watch:js','sass:dist', 'cssmin', 'concat', 'uglify', 'compress']);
-    
 };
