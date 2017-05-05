@@ -99,33 +99,40 @@
             font-weight: $font-weight;
             font-style: $font-style;
 
-            src: url('#{$url}.eot'),
-                url('#{$url}.eot?#iefix') format('embedded-opentype'),
-                url('#{$url}.woff2') format('woff2'),
-                url('#{$url}.woff') format('woff'),
-                url('#{$url}.ttf')  format('truetype'),
-                url('#{$url}.svg#svgFontName') format('svg');
+            src: 
+                /*url('#{$url}.eot'),*/
+                /*url('#{$url}.eot?#iefix') format('embedded-opentype'),*/
+                /*url('#{$url}.woff2') format('woff2'),*/
+                /*url('#{$url}.woff') format('woff'),*/
+                url('#{$url}.ttf')  format('truetype');
+                /*url('#{$url}.svg#svgFontName') format('svg');*/
         } 
     }
 }
 
-//EXTENDS
+@mixin breakpoint($point){
+  
+  @if ($point == lg){
+    @media (min-width: 1200px){ @content }
+  }
+  @else if ($point == md){
+    @media (min-width: 992px) and (max-width: 1199px){ @content }
+  }
+  
+  @else if ($point == sm){
+    @media (min-width: 768px) and (max-width: 991px){ @content }
+  }
 
-%clearfix {
-    *zoom: 1;
-    &:before,
-    &:after {
-        display: table;
-        content: "";
-        line-height: 0;
-    }
-    &:after {
-        clear: both;
-    }
+  @else if ($point == xs){
+    @media (max-width: 767px) and (min-width: 641px){ @content }
+  }
+
+  @else if ($point == xxs){
+    @media (max-width: 640px) and (min-width: 481px){ @content }
+  }
+
+  @else if ($point == xxxs){
+    @media  (max-width: 480px){ @content }
+  }
 }
 
-//FUNCTIONS
-
-@function em($pixels, $context: $BROWSER_CONTEXT) {
-  @return $pixels / $context * 1em;
-}
