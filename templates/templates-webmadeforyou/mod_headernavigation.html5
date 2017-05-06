@@ -1,30 +1,40 @@
-<div class="container-fluid">
+<div class="container-fluid navigation-bar-wrapper">
     <div class="row">
-        <div class="hidden-xs col-sm-5">
-
-        </div>
-        <div class="col-xs-12 col-sm-2">
-            <div class="navigation-button-container">
-                <div class="navigation-button" id="animated_navigation_button">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
+       
+        <div class="col-xs-12 col-sm-3 navigation-controller">
+            <div class="navigation-controller-content-wrap">
+                <div class="navigation-button-container">
+                    <div class="animated-navigation-button-cross" id="animated_navigation_button">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>   
                 </div>
                 <div class="navigation-title">
                     <div class="children-to-lowercase">
-                    <?= $this->headline ?>
+                            <span class="menu-headline" data-hover="<?= $this->headline ?>"></span>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="hidden-xs col-sm-4">
+
         </div>
         <div class="hidden-xs col-sm-5">
             
         </div>
     </div>
 </div>
-
-<nav class="<?= $this->class ?> block"<?= $this->cssID ?><?php if ($this->style): ?> style="<?= $this->style ?>"<?php endif; ?>>
+<div class="container-fluid wmfy-navpanel-wrapper">
+    <div class="row">
+        <div class="col-xs-12">
+            <nav class="<?= $this->class ?> block"<?= $this->cssID ?><?php if ($this->style): ?> style="<?= $this->style ?>"<?php endif; ?>>
   <?= $this->items ?>
 </nav>
+        </div>
+    </div>
+</div>
+

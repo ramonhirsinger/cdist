@@ -1,28 +1,276 @@
 @import 'lib/import.scss';
 
-
+html, body {height: 100%; width: 100%; } 
 
 body.wmfy-page {
     //FONT
-    h1,h2,h3,h4,h5,h6 {font-family: $headlinefont; font-weight: $headlineweight; color: $headlinecolor; font-size: em(32px);}
+    h1,h2,h3,h4,h5,h6 {font-family: $headlinefont; font-weight: $headlineweight; color: $headlinecolor; font-size: em($mediumheadlinesize);}
 
-    a,span,legend,p,li,td,div,input,button {font-family: $textfont; font-weight: $textweight; color: $textcolor; font-size: em(17px);}
+    a,span,legend,p,li,td,div,input,button {font-family: $textfont; font-weight: $textweight; color: $textcolor; font-size: em($textsize);}
 
     p {line-height: $paragraph-line;}
-    
-    //HEADER
-    .wmfy-header {position: fixed; top: 0; left: 0;width: 100%; background-color: $maincolor; }
 
-    //NAVIGATIONS
-    
-    .navigation-button-container {
-        .navigation-button {
-            
+    //WRAPPER
+    .wmfy-wrapper {
+        & {min-height: 100%; padding-bottom: $footerheight}
+    }
+
+    //HEADER
+    .wmfy-header {
+        &{position: fixed; top: 0; left: 0;width: 100%; z-index: 9999;}
+
+        //following container needs margin-top according to the height of the header;
+
+        .navigation-bar-wrapper {position: relative; z-index: 9998; background-color: $maincolor;}
+
+        .navigation-controller {
+
+            .navigation-button-container {
+
+                &{height: $navbtnheight; width: $navbtnwidth; display: table-cell; vertical-align: middle; padding-right: 7.5px;}
+
+                .animated-navigation-button-cross {
+
+                    &{height: $navbtnheight; width: $navbtnwidth; position: relative; overflow: hidden; cursor: pointer; @include transition-all-ease-in-out($navmenuanimationtime);}
+
+                    span {
+
+                        & {
+                            display: block;
+                            position: absolute;
+                            height: $burgerbarthickness;
+                            width: $navbtnwidth - 20px;
+                            background: $white;;
+                            opacity: 1;
+                            -webkit-transform: rotate(0deg);
+                            -moz-transform: rotate(0deg);
+                            -o-transform: rotate(0deg);
+                            transform: rotate(0deg);
+                            @include transition-all-ease-in-out($navmenuanimationtime);
+                        }
+
+                        &:nth-child(even) {
+                            right: $burgerpaddinghorizontal;
+                            border-radius: 0 3px 3px 0;
+                        }
+
+                        &:nth-child(odd) {
+                            left:$burgerpaddinghorizontal;
+                            border-radius: 3px 0 0 3px;
+                        }
+
+                        &:nth-child(1), &:nth-child(2) {
+                            top: $burgerpaddingvertical + $burgerbarthickness;
+                        }
+                        &:nth-child(3), &:nth-child(4) {
+                            top: ($navbtnheight / 2) - ($burgerbarthickness / 2);
+                        }
+                        &:nth-child(5), &:nth-child(6) {
+                            bottom: $burgerpaddingvertical + $burgerbarthickness;
+                        }
+                    }
+
+                    &.open {
+
+                        & > span:nth-child(2),& > span:nth-child(5) {
+                            -webkit-transform: rotate(-45deg);
+                            -moz-transform: rotate(-45deg);
+                            -o-transform: rotate(-45deg);
+                            transform: rotate(-45deg);
+                        }
+
+                        & > span:nth-child(1), & > span:nth-child(6) {
+                            -webkit-transform: rotate(45deg);
+                            -moz-transform: rotate(45deg);
+                            -o-transform: rotate(45deg);
+                            transform: rotate(45deg);
+                        }
+
+
+                        > span {
+                            &:nth-child(1), &:nth-child(2) {
+                                top: ($navbtnheight / 2) - ($burgerbarthickness / 2);
+                            }
+                            &:nth-child(3) {
+                                /*transform: translateX(-100%);*/
+                                opacity: 0;
+                            }
+                            &:nth-child(4) {
+                                /*transform: translateX(100%);*/
+                                opacity: 0;
+                            }
+                            &:nth-child(5), &:nth-child(6) {
+                                bottom: ($navbtnheight / 2) - ($burgerbarthickness / 2);
+                            }
+
+                            &:nth-child(1),  &:nth-child(5) {
+                                left: $burgerpaddinghorizontal;
+                            }
+
+                            &:nth-child(2),  &:nth-child(6) {
+                                right: $burgerpaddinghorizontal;
+                            }
+                        }
+                    }
+
+                    &:hover {
+                        & {background-color: $white;}
+
+                        span {
+                            & {background-color: $maincolor;}
+                        }
+                    }
+                }
+
+            }
+
+            .navigation-title {
+                &{display: inline-block; height: $headerheight; display: table-cell; vertical-align: middle;}
+                .menu-headline {position: relative; text-transform: uppercase; font-weight: 100; font-size: em($textsize); display: block; overflow: hidden;}
+
+                .menu-headline::before {
+                    position: relative;
+                    z-index: 1;
+                }
+
+                .menu-headline::before, .menu-headline::after {
+                    content: attr(data-hover); color: $white;
+                }
+
+                .menu-headline::after {
+                    position: absolute;
+                    left: 0;
+                    width: 0;
+                    z-index: 2;
+                    transition: width $navmenuanimationtime;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    color: $thirdcolor;
+                    background-color: $maincolor;
+                }
+
+                &.navigation-toggled {
+                    .menu-headline::after {width: 100%;}
+                } 
+            }
+
         }
-        
-        .navigation-title {
-            * {color: $white;}
+
+        //NAVIGATION
+
+        .wmfy-navpanel-wrapper {
+
+            &{overflow: hidden; position: absolute; left:0; bottom: 1px; width: 100%; z-index: 9997; background-color: $maincolor;
+              @include moveXY(-100%,100%); @include transition-all-ease-in-out(.2s); padding: 10px;
+            }
+
+            .wmfy-headernavigation {
+
+                &{width: 100%;}
+                
+                ul {
+                    &{margin: 0; padding: 0; background-color: $maincolor; width: 100%; text-align: center;}
+
+                    & > li {
+
+                        & {width: 15%; padding: 20px; position: relative; border: 1px solid $white; overflow: hidden; margin:10px; display: inline-block;}
+                        &::before  { content: ""; display: block; padding-top: 100%;}
+
+                        & > a, span {
+                            & {color: $white; display: block; text-align: center; position: absolute; top: 0; left:0; bottom: 0; right: 0;}
+                        }
+
+                        & > span { }
+
+                        &.submenu > ul {
+                            & {display: none;}
+                        }
+                    }
+                    
+                    & > li:last-child {}
+                }
+            }
+
+            &.open {
+                @include animate-element(zoomInNavigation,.2s);
+            }
+
+            &.closed {
+                @include animate-element(zoomOutNavigation,.2s);
+            }
         }
     }
+
+    //BREADCRUMB
+
+    .wmfy-breadcrumb {margin-top: $headerheight; padding-top: 15px; padding-bottom: 15px; display:none;}
+
+    #wmfy_breadcrumb {
+
+        & {width: 100%; background-color: $white; height: $breadcrumbheight;}
+        ul {
+            & {list-style: none; height: $breadcrumbheight; padding-left: 0;}
+
+            li {
+                font-size: em($breadcrumbsize);
+                @extend %clearfix;
+                float: left;
+                line-height: $breadcrumbheight;
+            }
+
+            a {
+                line-height: $breadcrumbheight;
+                font-size: em($breadcrumbsize);
+                display: block;
+            }
+
+            a:hover {
+                text-decoration: underline;
+                cursor: pointer;
+            }
+
+            > li {
+                &{margin-right: 15px; padding-left: 25px; position: relative;}
+            } 
+
+            > li::before {
+                content: '>';
+                font-size: em(14px);
+                position: absolute;
+                left: 0px;
+                top: 15px;
+            }
+
+            > li:first-child::before {
+                @include fa-icon-add('globe');
+                font-size: em($breadcrumbsize);
+            }
+        }
+    }
+
+
+    //CONTENT
+
+    .wmfy-container {
+        & {padding-top: $headerheight;}
+    }
+
+
+    //FOOTER
+
+    footer {
+        &{width: 100%; min-height: $footerheight; margin-top: -1 * $footerheight; background-color: $maincolor;}
+
+        nav {
+            > ul {
+                > li {
+                    a,span {
+                        & {color: $white;}
+                    }
+                }
+            }
+        }
+    }
+
 }
 

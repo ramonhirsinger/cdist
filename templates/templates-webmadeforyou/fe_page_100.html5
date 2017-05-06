@@ -35,7 +35,13 @@
           </header>
         <?php endif; ?>
       <?php $this->endblock(); ?>
-      <?php $this->sections('before'); ?>
+        <div class="container-fluid wmfy-breadcrumb">
+            <div class="row">
+                <div class="col-xs-12">
+                    <?php $this->sections('before'); ?>
+                </div>
+            </div>
+        </div>  
       <?php $this->block('container'); ?>
         <div id="container" class="wmfy-container">
           <?php $this->block('main'); ?>
@@ -49,19 +55,31 @@
         </div>
       <?php $this->endblock(); ?>
       <?php $this->sections('after'); ?>
-      <?php $this->block('footer'); ?>
+    </div>
+    <?php $this->block('footer'); ?>
         <?php if ($this->footer): ?>
           <footer id="footer" class="wmfy-footer">
             <div class="inside">
-              <?= $this->footer ?>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-4">
+                            
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-4">
+                            
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-4">
+                            <?= $this->footer ?>
+                        </div>
+                    </div>
+                </div>  
             </div>
           </footer>
         <?php endif; ?>
       <?php $this->endblock(); ?>
-    </div>
     <?php $this->sections('bottom'); ?>
   <?php $this->endblock(); ?>
   <?= $this->mootools ?>
-    <script type="text/javascript" src="files/themes/theme-webmadeforyou/js/main.min.js"></script>
+  <script type="text/javascript" src="files/themes/theme-webmadeforyou/js/main.min.js"></script>
 </body>
 </html>
