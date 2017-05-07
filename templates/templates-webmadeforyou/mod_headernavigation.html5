@@ -1,6 +1,6 @@
-<div class="container-fluid navigation-bar-wrapper">
+<div class="container navigation-bar-wrapper">
     <div class="row">
-       
+
         <div class="col-xs-12 col-sm-3 navigation-controller">
             <div class="navigation-controller-content-wrap">
                 <div class="navigation-button-container">
@@ -15,7 +15,7 @@
                 </div>
                 <div class="navigation-title">
                     <div class="children-to-lowercase">
-                            <span class="menu-headline" data-hover="<?= $this->headline ?>"></span>
+                        <span class="menu-headline" data-hover="<?= $this->headline ?>"></span>
                     </div>
                 </div>
             </div>
@@ -24,16 +24,29 @@
 
         </div>
         <div class="hidden-xs col-sm-5">
-            
+
         </div>
     </div>
 </div>
-<div class="container-fluid wmfy-navpanel-wrapper">
-    <div class="row">
-        <div class="col-xs-12">
-            <nav class="<?= $this->class ?> block"<?= $this->cssID ?><?php if ($this->style): ?> style="<?= $this->style ?>"<?php endif; ?>>
-  <?= $this->items ?>
-</nav>
+<div class="navpanel-background">
+    <div class="container navigation-container">
+        <div class="navigation-next-row-button">
+            <span>
+                <ul>
+                    <li><i class="fa fa-angle-down"></i></li>
+                    <li><i class="fa fa-angle-down"></i></li>
+                    <li><i class="fa fa-angle-down"></i></li>
+                </ul>
+            </span>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="wmfy-navpanel-wrapper">
+                    <nav class="<?= $this->class ?> block"<?= $this->cssID ?><?php if ($this->style): ?> style="<?= $this->style ?>"<?php endif; ?>>
+                        <?= $this->items ?>
+                    </nav>
+                </div>
+            </div>
         </div>
     </div>
 </div>

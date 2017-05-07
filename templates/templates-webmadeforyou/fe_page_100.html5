@@ -35,7 +35,7 @@
           </header>
         <?php endif; ?>
       <?php $this->endblock(); ?>
-        <div class="container-fluid wmfy-breadcrumb">
+        <div class="container wmfy-breadcrumb">
             <div class="row">
                 <div class="col-xs-12">
                     <?php $this->sections('before'); ?>
@@ -60,7 +60,7 @@
         <?php if ($this->footer): ?>
           <footer id="footer" class="wmfy-footer">
             <div class="inside">
-                <div class="container-fluid">
+                <div class="container">
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-4">
                             
