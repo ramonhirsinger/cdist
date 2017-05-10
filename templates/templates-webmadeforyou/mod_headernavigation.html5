@@ -20,18 +20,22 @@
                 </div>
             </div>
         </div>
-        <div class="hidden-xs col-sm-4">
-
-        </div>
-        <div class="hidden-xs col-sm-5">
-
+        <div class="hidden-xs col-sm-9">
+            <div class="wmfy-header-meta-menu scoial-menu">
+                <ul class="header-meta-menu-list">
+                    <li><a href="www.facebook.com"><i class="fa fa-facebook"></a></i></li>
+                    <li><a href="www.xing.com"><i class="fa fa-xing"></i></a></li>
+                    <li><a href="www.linkedin.com"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="www.twitter.com"><i class="fa fa-twitter"></i></a></li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>
 <div class="navpanel-background">
     <div class="container navigation-container">
         <div class="navigation-next-row-button">
-            <span>
+            <span id="navigation-next-row-button">
                 <ul>
                     <li><i class="fa fa-angle-down"></i></li>
                     <li><i class="fa fa-angle-down"></i></li>
@@ -48,6 +52,12 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="container navigtion-content-menu">
+
+    </div>
+    <div class="container navigation-footer-menu">
+
     </div>
 </div>
 

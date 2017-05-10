@@ -40,6 +40,32 @@
     100% {transform: translateY(0); opacity: 1;}
 }
 
+@keyframes slidetopNavigationElement {
+    0% {transform: translateY(0); opacity: 1;}
+    5% {transform: translateY(0); opacity: 1;}
+    10% {transform: translateY(-10%); opacity: .9;}
+    15% {transform: translateY(-10%); opacity: .8;}
+    20% {transform: translateY(-20%); opacity: .7;}
+    30% {transform: translateY(-30%); opacity: .6;}
+    40% {transform: translateY(-40%); opacity: .5;}
+    60% {transform: translateY(-60%); opacity: .4;}
+    80% {transform: translateY(-80%); opacity: .3;}
+    100% {transform: translateY(-100%); opacity: .2;}
+}
+
+@keyframes slidefrombottomtonotmalNavigationElement {
+    0% {transform: translateY(100%); opacity: 0;}
+    5% {transform: translateY(100%); opacity: 0;}
+    10% {transform: translateY(90%); opacity: .1;}
+    15% {transform: translateY(80%); opacity: .2;}
+    20% {transform: translateY(80%); opacity: .3;}
+    30% {transform: translateY(70%); opacity: .4;}
+    40% {transform: translateY(60%); opacity: .5;}
+    60% {transform: translateY(40%); opacity: .6;}
+    80% {transform: translateY(20%); opacity: .8;}
+    100% {transform: translateY(0%); opacity: 1;}
+}
+
 @keyframes shortbounce {
    0% {@include scale(1);} 
    5% {@include scale(1.1);} 
